@@ -6,6 +6,11 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 <f:view>
-    <h:outputLabel value="Hello, world"/>
+    <h:dataTable value="#{userApplicationBean.users}" var="user" border="1">
+        <h:column>
+            <f:facet name="header">User</f:facet>
+            #{user}
+        </h:column>
+    </h:dataTable>
 </f:view>
 </html>
