@@ -36,6 +36,6 @@ public class UserSessionBean implements Serializable {
         userApplicationBean.addUser(this.username);
 
         // Redirect to the page showing the user list
-        return "usersList?faces-redirect=true";
+        return "usersTable.xhtml?faces-redirect=true";
     }
 }

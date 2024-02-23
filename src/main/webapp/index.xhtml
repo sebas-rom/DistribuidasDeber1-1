@@ -15,14 +15,10 @@
         <h:inputSecret id="password" value="#{userSessionBean.password}" required="true" />
 
         <h:commandButton value="Login" action="#{userSessionBean.login}" />
+
     </h:form>
 
-    <h:dataTable value="#{userApplicationBean.users}" var="user" border="1">
-        <h:column>
-            <f:facet name="header">User</f:facet>
-            #{user}
-        </h:column>
-    </h:dataTable>
+
 
 </h:body>
 </html>

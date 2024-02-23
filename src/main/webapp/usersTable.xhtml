@@ -5,12 +5,22 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+    <title>Tabla de Usuarios</title>
+    <meta http-equiv="refresh" content="5"/><!-- Actualizar cada 5 segundos -->
+</h:head>
+
+
+
 <f:view>
-    <h:dataTable value="#{userApplicationBean.users}" var="user" border="1">
-        <h:column>
-            <f:facet name="header">User</f:facet>
-            #{user}
-        </h:column>
-    </h:dataTable>
+    <h:form id="userTableForm">
+        <h:dataTable id="userTable" value="#{userApplicationBean.users}" var="user" border="1">
+            <h:column>
+                <f:facet name="header">User</f:facet>
+                #{user}
+            </h:column>
+        </h:dataTable>
+    </h:form>
 </f:view>
 </html>
