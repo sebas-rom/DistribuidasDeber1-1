@@ -5,12 +5,25 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
-<f:view>
-    <h:dataTable value="#{userApplicationBean.users}" var="user" border="1">
-        <h:column>
-            <f:facet name="header">User</f:facet>
-            #{user}
-        </h:column>
-    </h:dataTable>
-</f:view>
+<h:head>
+    <title>Tabla de Usuarios</title>
+    <script type="text/javascript">
+        var socket = new WebSocket("ws://localhost:8080/DistribuidasDeber1-1/userWebSocket");
+
+        socket.onmessage = function (event) {
+            // Update the userTable with new data
+            document.getElementById("userTableForm:userTable").innerHTML = event.data;
+        };
+    </script>
+</h:head>
+    <h:body>
+        <f:view>
+            <h:dataTable value="#{userApplicationBean.users}" var="user" border="1">
+                <h:column>
+                    <f:facet name="header">User</f:facet>
+                    #{user}
+                </h:column>
+            </h:dataTable>
+        </f:view>
+    </h:body>
 </html>
